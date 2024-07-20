@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Observaciones del Ambiente</title>
-    <link rel="stylesheet" href="../CSS/miobservacion.css">   
+    <link rel="stylesheet" href="../CSS/miobservacion.css">
+    
 </head>
 <body>
     <div class="container">
+        <div class="header">
+            <a href="file:///C:/xampp/htdocs/ActividadAmbientes/index.html">Inicio</a>
+        </div>
         <h1>Observaciones del Ambiente</h1>
-        <form action="procesar_observaciones.php" method="post">
+        <form id="observaciones-form">
             <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
+                <label for="numero_documento">Número de Documento:</label>
+                <input type="text" id="numero_documento" required>
             </div>
             <div class="form-group">
                 <label for="observaciones">Observaciones:</label>
@@ -20,6 +24,24 @@
             </div>
             <button type="submit" class="btn-submit">Enviar</button>
         </form>
+        <div class="form-footer">
+            <button id="historial-btn" class="btn" onclick="location.href='historial.html'">Historial</button>
+        </div>
     </div>
+    <script src="path/to/materialize.js"></script>
+    <script>
+        document.getElementById('observaciones-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const numeroDocumento = document.getElementById('numero_documento').value;
+            const observaciones = document.getElementById('observaciones').value;
+            const fechaHora = new Date().toISOString().replace('T', ' ').substring(0, 19);
+            const nuevaObservacion = { fechaHora, numeroDocumento, observaciones };
+            let observacionesGuardadas = JSON.parse(localStorage.getItem('observaciones')) || [];
+            observacionesGuardadas.push(nuevaObservacion);
+            localStorage.setItem('observaciones', JSON.stringify(observacionesGuardadas));
+            document.getElementById('observaciones-form').reset();
+            alert('Observación guardada');
+        });
+    </script>
 </body>
 </html>

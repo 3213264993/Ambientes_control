@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Observaciones</title>
+    <link rel="stylesheet" href="../CSS/mihistorial.css"> 
+    
+</head>
+<body>
+    <div class="container">
+        <div class="btn-volver">
+            <button id="Observaciones" class="btn" onclick="location.href='///C:/xampp/htdocs/ActividadAmbientes/Paginas/obser.html'">Volver</button>
+        </div>
+        <div class="header">
+            <h1>Historial de Observaciones</h1>
+            <div>
+                <label for="fecha">Buscar por Fecha:</label>
+                <input type="date" id="fecha">
+                <button onclick="buscarObservaciones()">Buscar</button>
+            </div>
+        </div>
+        <table id="tabla-observaciones">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Número de Documento</th>
+                    <th>Observaciones</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se insertarán las observaciones -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function buscarObservaciones() {
+            const fechaBusqueda = document.getElementById('fecha').value;
+            if (!fechaBusqueda) {
+                alert('Por favor, ingrese una fecha.');
+                return;
+            }
+            const observacionesGuardadas = JSON.parse(localStorage.getItem('observaciones')) || [];
+            const tablaBody = document.getElementById('tabla-observaciones').querySelector('tbody');
+            tablaBody.innerHTML = '';
+
+            const observacionesFiltradas = observacionesGuardadas.filter(obs => obs.fechaHora.startsWith(fechaBusqueda));
+            observacionesFiltradas.forEach((obs, index) => {
+                const fila = document.createElement('tr');
+                const [fecha, hora] = obs.fechaHora.split(' ');
+                fila.innerHTML = `
+                    <td>${fecha}</td>
+                    <td>${hora}</td>
+                    <td>${obs.numeroDocumento}</td>
+                    <td>${obs.observaciones}</td>
+                    <td><button onclick="eliminarObservacion(${index})">Eliminar</button></td>
+                `;
+                tablaBody.appendChild(fila);
+            });
+
+            if (observacionesFiltradas.length === 0) {
+                tablaBody.innerHTML = '<tr><td colspan="5">No se encontraron observaciones para esta fecha.</td></tr>';
+            }
+        }
+
+        function eliminarObservacion(index) {
+            let observacionesGuardadas = JSON.parse(localStorage.getItem('observaciones')) || [];
+            const fechaBusqueda = document.getElementById('fecha').value;
+            const observacionesFiltradas = observacionesGuardadas.filter(obs => obs.fechaHora.startsWith(fechaBusqueda));
+            const observacionAEliminar = observacionesFiltradas[index];
+
+            observacionesGuardadas = observacionesGuardadas.filter(obs => obs.fechaHora !== observacionAEliminar.fechaHora || obs.numeroDocumento !== observacionAEliminar.numeroDocumento || obs.observaciones !== observacionAEliminar.observaciones);
+            localStorage.setItem('observaciones', JSON.stringify(observacionesGuardadas));
+
+            buscarObservaciones();
+        }
+    </script>
+</body>
+</html>

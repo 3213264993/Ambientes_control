@@ -31,8 +31,8 @@ button {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background: #90eca4;
-    color: #111111;
+    background: #48f170;
+    color: #020202;
     cursor: pointer;
 }
 button:hover {
