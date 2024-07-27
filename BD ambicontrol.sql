@@ -16,7 +16,7 @@ CREATE TABLE usuarios (
 CREATE TABLE asignaciones (
     id INT AUTO_INCREMENT PRIMARY KEY,
     numero_documento VARCHAR(50) NOT NULL,
-    tipo ENUM('Entrada', 'Salida') NOT NULL,
+    tipo_asignacion ENUM('Entrada', 'Salida') NOT NULL,
     numero_ambiente VARCHAR(50) NOT NULL,
     fecha DATE NOT NULL DEFAULT (CURRENT_DATE),
     hora TIME NOT NULL DEFAULT (CURRENT_TIME),
