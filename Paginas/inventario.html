@@ -5,12 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventario de Ambiente</title>
     <link rel="stylesheet" href="../CSS/inver.css">
-    
+    <style>
+        .date-time-container {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Ajusta el espacio entre la fecha y la hora */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <img src="../img/logosena.png" alt="Logo SENA" class="logo">
         <h1 class="title">Inventario De Ambiente</h1>
-        <input type="date" id="fecha" name="fecha" readonly>
+        <div class="date-time-container">
+            <input type="date" id="fecha" name="fecha" readonly>
+            <div id="hora"></div>
+        </div>
         <script>
             // Set the current date in the date input field
             document.addEventListener('DOMContentLoaded', function() {
@@ -29,8 +39,8 @@
             
             setInterval(actualizarHora, 1000); // 1000ms = 1s
             window.onload = actualizarHora;
+            
         </script>
-        <div id="hora"></div>
         <form id="inventoryForm">
             <table class="form-table">
                 <thead>

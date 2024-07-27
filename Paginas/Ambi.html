@@ -9,18 +9,19 @@
 </head>
 <body>
     <div class="container">
+        <img src="../img/logosena.png" alt="Logo SENA" class="logo">
         <div class="header">
-            <a href="file:///C:/xampp/htdocs/ActividadAmbientes/index.html">Inicio</a>
+            <a href="http://localhost/ActividadAmbientes/index.php">Inicio</a>
             <a href="file:///C:/xampp/htdocs/ActividadAmbientes/Paginas/inventario.html">Inventario</a>
         </div>
         <h1>Registro de Asignación del Ambiente</h1>
         <form action="procesar_asignacion.php" method="post" name="assignment-form">
             <div class="form-group">
-                <label for="Numero De Documento">Numero De Documento:</label>
-                <input type="text" id="Numero De Documento" name="Numero De Documento" required>
+                <label for="Numero_Documento">Numero_Documento:</label>
+                <input type="text" id="Numero_Documento" name="Numero_Documento" required>
             </div>
             <div class="form-group">
-                <label for="tipo">Tipo de Asignación:</label>
+                <label for="tipo">Tipo_asignación:</label>
                 <select id="tipo" name="tipo" required>
                     <option value="" disabled selected>Seleccione...</option>
                     <option value="tipo1">Entrada</option>
@@ -28,8 +29,8 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="numeroAmbiente">Número de Ambiente:</label>
-                <select id="numeroAmbiente" name="numeroAmbiente" required>
+                <label for="numero_ambiente">Número_ambiente:</label>
+                <select id="numero_ambiente" name="numero_ambiente" required>
                     <option value="" disabled selected>Seleccione...</option>
                     <option value="ambiente1">Ambiente 101</option>
                     <option value="ambiente2">Ambiente 102</option>
@@ -41,7 +42,15 @@
                     <option value="ambiente8">Ambiente 108</option>
                     <option value="ambiente9">Ambiente 109</option>
                     <option value="ambiente10">Ambiente 110</option>
-                    <option value="ambiente11">Ambiente 111</option>
+                    <option value="ambiente11">Ambiente 112</option>
+                    <option value="ambiente11">Ambiente poli1</option>
+                    <option value="ambiente11">Ambiente poli2</option>
+                    <option value="ambiente11">Ambiente poli3</option>
+                    <option value="ambiente11">Ambiente Ajedrez</option>
+                    <option value="ambiente11">Ambiente Alturas</option>
+                    <option value="ambiente11">Ambiente Deportes</option>
+                    <option value="ambiente11">Ambiente Biblioteca</option>
+
                 </select>
             </div>
             <div class="form-footer">

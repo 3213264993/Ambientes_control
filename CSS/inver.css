@@ -1,61 +1,67 @@
+
 body {
-            font-family: Arial, sans-serif;
-            background-image: url('../img/SENA4.jpg');
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 50%;
-        }
-        .title {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-            color: #333;
-        }
-        .form-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .form-table th, .form-table td {
-            padding: 10px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
-        .form-table th {
-            background-color: #f2f2f2;
-        }
-        .options {
-            display: flex;
-            justify-content: space-around;
-        }
-        .form-table input[type="radio"] {
-            margin-right: 10px;
-        }
-        .form-table input[type="number"], .form-table input[type="text"] {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 5px;
-        }
-        .submit-button {
-            padding: 10px 20px;
-            border: none;
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-            width: 100%;
-            font-size: 1em;
-        }
-        .submit-button:hover {
-            background-color: #45a049;
-        }
- 
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("../img/SENA4.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px; 
+    height: auto;
+}
+.title {
+    margin-top: 60px; 
+    margin-bottom: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.form-group {
+    margin-top: 50px;
+}
+.submit-button {
+    padding: 10px 26px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.submit-button:hover {
+    background-color: #218838;
+}
+input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
